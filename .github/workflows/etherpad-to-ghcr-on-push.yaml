@@ -1,0 +1,18 @@
+---
+name: Etherpad Docker Image on Push to GHCR
+
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  build_image_on_push:
+    permissions:
+      actions: read
+      contents: read
+      packages: write
+      security-events: write
+    uses: hpi-schul-cloud/infra-tools/.github/workflows/imagetoghcr-on-push.yaml@master
+    with:
+      image_name: "etherpad"
