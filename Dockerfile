@@ -1,2 +1,4 @@
 FROM etherpad/etherpad:2.2.7
-RUN npm install --no-save --legacy-peer-deps ep_mathjax
+# Specify the plugins to install
+ARG ETHERPAD_PLUGINS="ep_mathjax"
+RUN npm install --no-save --legacy-peer-deps $ETHERPAD_PLUGINS
